@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #3c3b3f; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #605c3c, #3c3b3f); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #605c3c, #3c3b3f);
+
+    min-height: 100vh;
+    font-family: "montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    .container {
+        background-color: #f8f6f6;
+        border-radius: 6px;
+        box-shadow: 0 0 25px 5px rgba(82, 86, 94, 0.2);
+        display: flex;
+
+        .color-preview {
+            width: 280px;
+            height: 250px;
+            background-color: #ed145b;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+
+        .controls {
+            width: 430px;
+            height: 250px;
+            padding: 60px;
+            background-color: #f8f6f6;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+
+            .input-box {
+                display: flex;
+
+                input {
+                    width: 100%;
+                    padding: 15px;
+                    color: #ed145b;
+                    background: transparent;
+                    font-size: 22px;
+                    font-weight: 600;
+                    border: 2px solid #ed145b;
+                    border-top-left-radius: 6px;
+                    border-bottom-left-radius: 6px;
+                }
+                button {
+                    padding: 10px 25px;
+                    color: #f8f6f6;
+                    background-color: #ed145b;
+                    font-size: 22px;
+                    border-top-right-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    cursor: pointer;
+                    &:active {
+                        opacity: 0.9;
+                    }
+                }
+            }
+
+            .generate-btn {
+                width: 100%;
+                margin-top: 20px;
+                padding: 12px;
+                color: #f8f6f6;
+                background: -webkit-linear-gradient(to right, #605c3c, #3c3b3f); /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #605c3c, #3c3b3f);
+                font-size: 22px;
+                font-weight: 600;
+                border-radius: 6px;
+                cursor: pointer;
+                &:active {
+                    opacity: 0.9;
+                }
+            }
+
+            .alert-msg {
+                width: 400px;
+                padding: 15px;
+                color: #f8f6f6;
+                background-color: #363636;
+                font-size: 20px;
+                font-weight: 400;
+                border-radius: 6px;
+                text-align: center;
+                position: fixed;
+                bottom: -100px;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0;
+
+                .code {
+                    font-weight: 700;
+                }
+            }
+
+            .slide-effect {
+                animation: slideInUp 2s ease-in;
+            }
+        }
+    }
+}
+
+//  slideInUp animation
+
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        bottom: -100px;
+    }
+    20% {
+        opacity: 1;
+        bottom: 20px;
+    }
+    90% {
+        opacity: 1;
+        bottom: 20px;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/*  ====================== Cursor ============================ */
+.cursor,
+.cursor2,
+.cursor3 {
+    position: fixed;
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    left: -100px;
+    top: 50%;
+    mix-blend-mode: difference;
+}
+
+.cursor {
+    background-color: #fff;
+    height: 0;
+    width: 0;
+    z-index: 99999;
+}
+
+.cursor2,
+.cursor3 {
+    height: 36px;
+    width: 36px;
+    z-index: 99998;
+    transition: all 0.3s ease-out;
+    &:hover {
+        transform: scale(2) translateX(-25%) translateY(-25%);
+        border: none;
+    }
+}
+
+.cursor2 {
+    border: 2px solid #fff;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+    &:hover {
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* ========================================================== */
